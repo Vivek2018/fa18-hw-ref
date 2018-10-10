@@ -13,7 +13,28 @@ most_common_char
 Given an input string s, return the most common character in s.
 """
 def most_common_char(s):
-	pass
+	s = ''.join(sorted(s))
+	#print (s)
+	Kingcounter = 0
+	newcounter = 0
+	comChar = ""
+	for i in range (0, len(s) - 1):
+		if (s[i] == s[i+1]):
+			newcounter += 1
+		else:
+			if (Kingcounter < newcounter):
+				Kingcounter = newcounter
+				comChar = s[i]
+				newcounter = 0
+	#print(comChar)
+	return comChar
+
+#most_common_char("     ")
+
+
+
+
+
 
 
 """
