@@ -14,28 +14,64 @@ Given an input string s, return the most common character in s.
 """
 def most_common_char(s):
 	s = ''.join(sorted(s))
-	#print (s)
+	# print (s)
 	Kingcounter = 0
 	newcounter = 0
 	comChar = ""
-	for i in range (0, len(s) - 1):
-		if (s[i] == s[i+1]):
+	list= []
+	s = s[:] + "∞"
+
+	for i in range(0, len(s) - 1):
+		if (s[i] == s[i + 1]):
 			newcounter += 1
 		else:
+			if (Kingcounter == newcounter):
+				Kingcounter = newcounter
+				comChar = s[i]
+				list += comChar
+				newcounter = 0
+				comChar = ""
+				#print(list)
+
 			if (Kingcounter < newcounter):
 				Kingcounter = newcounter
 				comChar = s[i]
 				newcounter = 0
-	#print(comChar)
-	return comChar
+				#print(list)
+				list.clear()
+				list += comChar
+	if (len(list) < 2):
+		return comChar
+	return list
 
-#most_common_char("     ")
+print(most_common_char("AVX is a feature in modern CPUs that allows one instruction to affect multiple units. vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvectors"))
 
+"""
+	for i in range (0, len(s) - 1):
+		if (s[i] == s[i+1]):
+			newcounter = newcounter + 1
+		else:
+			if (Kingcounter == newcounter):
+				Kingcounter = newcounter
+				comChar = s[i]
+				dict.update({comChar:Kingcounter})
+				newcounter = 0
+				comChar = ""
 
+			elif (Kingcounter < newcounter):
+				""""""if(s[i] in dict):
+				print()
+			else:""""""
+				Kingcounter = newcounter
+				comChar = s[i]
+				dict.update({comChar: Kingcounter})
+				newcounter = 0
+				comChar = ""
+	#for i in range (0, len(s)):
+		#dict[i] = dict.get(i) + 1
 
-
-
-
+	print(dict)
+	"""
 
 """
 alphabet_finder
@@ -77,9 +113,11 @@ Example:
 		[1, 6]
 """
 def longest_unique_subarray(arr):
-	pass
+	Arr1 = []
+	Arr2 = []
 
-
+	for i in range (0, len(arr)):
+		print()
 """
 string_my_one_true_love
 
